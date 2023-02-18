@@ -1,0 +1,13 @@
+name = "gledis"
+version = "0.1.0"
+description = "Gleam Redis client"
+
+licences = ["Apache-2.0"]
+repository = { type = "github", user = "HarryET", repo = "gledis" }
+
+[dependencies]
+gleam_stdlib = "~> 0.26"
+eredis = "~> 1.7"
+
+[dev-dependencies]
+gleeunit = "~> 0.9"
