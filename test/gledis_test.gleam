@@ -13,6 +13,5 @@ pub fn setup_connection() -> Client {
 // gleeunit test functions end in `_test`
 pub fn set_test() {
   let conn = setup_connection()
-  let e = gledis.set(conn, "foo", gledis.string("bar"))
-  io.debug(e)
+  assert Ok(_) = gledis.set(conn, "foo", gledis.string("bar"))
 }
