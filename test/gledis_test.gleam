@@ -1,5 +1,4 @@
 import gleeunit
-import gleeunit/should
 import gledis.{Client}
 import gleam/io
 
