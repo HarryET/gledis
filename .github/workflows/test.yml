@@ -9,23 +9,25 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-    services:
-      redis:
-        image: redis
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+    runs-on: ${{ matrix.os }}
+    name: "[${{ matrix.os }}/gleam-${{matrix.gleam-version}}] Redis ${{ matrix.redis-version }}"
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        redis-version: ["4", "5", "6"]
+        gleam-version: ["0.24.0", "0.26.0", "0.27.0"]
     steps:
       - uses: actions/checkout@v3.2.0
       - uses: starbelly/setup-beam@do-not-hit-api-when-strict
         with:
           otp-version: "25.2"
-          gleam-version: "0.26.0"
+          gleam-version: ${{ matrix.gleam-version }}
           rebar3-version: "3.20.0"
           version-type: "strict"
+      - name: Start Redis
+        uses: supercharge/redis-github-action@1.5.0
+        with:
+          redis-version: ${{ matrix.redis-version }}
       - run: gleam format --check src test
       - run: gleam deps download
       - run: gleam test

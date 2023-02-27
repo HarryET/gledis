@@ -6,7 +6,7 @@ licences = ["Apache-2.0"]
 repository = { type = "github", user = "HarryET", repo = "gledis" }
 
 [dependencies]
-gleam_stdlib = "~> 0.26"
+gleam_stdlib = "~> 0.20"
 eredis = "~> 1.7"
 
 [dev-dependencies]
