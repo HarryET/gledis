@@ -1,12 +1,19 @@
 import gleeunit
 import gleeunit/should
+import gledis.{Connection}
+import gleam/io
 
 pub fn main() {
   gleeunit.main()
 }
 
+pub fn setup_connection() -> Connection {
+  gledis.connect()
+}
+
 // gleeunit test functions end in `_test`
-pub fn hello_world_test() {
-  1
-  |> should.equal(1)
+pub fn set_test() {
+  let conn = setup_connection()
+  let e = gledis.set(conn, "foo", gledis.string("bar"))
+  io.debug(e)
 }
