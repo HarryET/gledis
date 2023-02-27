@@ -22,7 +22,7 @@ pub external fn bytea(BitString) -> Argument =
 
 pub external type Client
 
-pub external fn connect() -> Client =
+pub external fn connect() -> Result(Client, String) =
   "gledis_ffi" "connect"
 
 pub type Options {
@@ -49,7 +49,7 @@ pub fn default_options() -> Options {
   )
 }
 
-pub external fn connect_with_opts(Options) -> Client =
+pub external fn connect_with_opts(Options) -> Result(Client, String) =
   "gledis_ffi" "connect"
 
 pub external fn close(client: Client) -> Nil =
