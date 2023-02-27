@@ -1,13 +1,13 @@
 import gleeunit
 import gledis.{Client}
-import gleam/io
 
 pub fn main() {
   gleeunit.main()
 }
 
 pub fn setup_connection() -> Client {
-  gledis.connect()
+  assert Ok(conn) = gledis.connect()
+  conn
 }
 
 // gleeunit test functions end in `_test`
