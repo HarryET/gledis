@@ -23,6 +23,7 @@ jobs:
           otp-version: "25.2"
           gleam-version: ${{ matrix.gleam-version }}
           rebar3-version: "3.20.0"
+          elixir-version: "1.14.3"
           version-type: "strict"
       - name: Start Redis
         uses: supercharge/redis-github-action@1.5.0
