@@ -9,5 +9,5 @@ packages = [
 
 [requirements]
 eredis = "~> 1.7"
-gleam_stdlib = "~> 0.26"
+gleam_stdlib = "~> 0.20"
 gleeunit = "~> 0.9"
