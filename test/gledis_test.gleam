@@ -1,13 +1,13 @@
 import gleeunit
 import gleeunit/should
-import gledis.{Connection}
+import gledis.{Client}
 import gleam/io
 
 pub fn main() {
   gleeunit.main()
 }
 
-pub fn setup_connection() -> Connection {
+pub fn setup_connection() -> Client {
   gledis.connect()
 }
 
