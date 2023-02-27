@@ -1,4 +1,5 @@
 import gleam/option.{None, Option}
+import gleam/dynamic.{Dynamic}
 
 pub external type Argument
 
@@ -22,7 +23,7 @@ pub external fn bytea(BitString) -> Argument =
 
 pub external type Client
 
-pub external fn connect() -> Result(Client, String) =
+pub external fn connect() -> Result(Client, Dynamic) =
   "gledis_ffi" "connect"
 
 pub type Options {
@@ -49,7 +50,7 @@ pub fn default_options() -> Options {
   )
 }
 
-pub external fn connect_with_opts(Options) -> Result(Client, String) =
+pub external fn connect_with_opts(Options) -> Result(Client, Dynamic) =
   "gledis_ffi" "connect"
 
 pub external fn close(client: Client) -> Nil =
