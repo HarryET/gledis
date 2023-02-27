@@ -15,7 +15,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         redis-version: ["4", "5", "6"]
-        gleam-version: ["0.24.0", "0.26.0", "0.27.0"]
+        gleam-version: ["0.25.0", "0.26.0"]
     steps:
       - uses: actions/checkout@v3.2.0
       - uses: starbelly/setup-beam@do-not-hit-api-when-strict
